@@ -1,10 +1,13 @@
+# Create your views here.
 from django.shortcuts import render
 from django.http import HttpResponse
 from datetime import datetime
 
-# from django.views.generic import TemplateView
+from django.views.generic import TemplateView
+
 # from django.views.generic.edit import CreateView
-# from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 # from django.contrib.auth.views import LoginView, LogoutView
 # from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
@@ -14,15 +17,15 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
-def test_method(request):
-    # return HttpResponse("Test Hello")
-    return render(request, "home/testtemplate.html", {"today": datetime.today()})
+# def test_method(request):
+#     # return HttpResponse("Test Hello")
+#     return render(request, "home/testtemplate.html", {"today": datetime.today()})
 
 
-@login_required(login_url="/admin")
-def test_auth(request):
-    # return HttpResponse("Test auth")
-    return render(request, "home/testauth.html", {})
+# @login_required(login_url="/admin")
+# def test_auth(request):
+#     # return HttpResponse("Test auth")
+#     return render(request, "home/testauth.html", {})
 
 
 # class SignupView(CreateView):
@@ -44,11 +47,11 @@ def test_auth(request):
 #     template_name = "home/login.html"
 
 
-# class HomeView(TemplateView):
-#     template_name = "home/welcome.html"
-#     extra_context = {"today": datetime.today()}
+class HomeView(TemplateView):
+    template_name = "home/welcome.html"
+    extra_context = {"today": datetime.today()}
 
 
-# class AuthorizedView(LoginRequiredMixin, TemplateView):
-#     template_name = "home/authorized.html"
-#     login_url = "/admin"
+class AuthorizedView(LoginRequiredMixin, TemplateView):
+    template_name = "home/authorized.html"
+    login_url = "/admin"
