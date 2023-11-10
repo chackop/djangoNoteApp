@@ -16,7 +16,6 @@
   </head>
 
   <body>
-    {% comment %}
     <nav class="navbar navbar-dark bg-dark">
       <div class="ms-auto">
         {% if user.is_authenticated %}
@@ -37,7 +36,7 @@
         {% endif %}
       </div>
     </nav>
-    {% endcomment %}
+
     <div class="my-5 text-center container">
       {% block content %} {% endblock %}
     </div>

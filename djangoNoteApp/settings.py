@@ -132,4 +132,4 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-# LOGIN_REDIRECT_URL = "/djn/notes"
+LOGIN_REDIRECT_URL = "/allnotes/notes"
